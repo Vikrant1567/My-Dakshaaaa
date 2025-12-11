@@ -115,14 +115,14 @@
 
   <!-- Popup Message -->
   <div id="popupMsg">
-    Suchi, you are amazing! Wishing you the happiest birthday ever! 🎉💖
+    Sorry I couldn't make much but Happy Birthday :D
     <br><br>
     <button id="closePopupBtn" class="btn" style="background:#ff4444;">Close Message ✖</button>
   </div>
 
   <!-- Birthday Song -->
   <audio id="bdaySong" autoplay loop>
-    <source src="Sbdaysong.mp3" type="audio/mpeg">
+    <source src="Suchi's Birthday Song.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Balloons -->
@@ -198,6 +198,58 @@
       }
       musicPlaying = !musicPlaying;
     });
+  </script>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <img class="slide" src="S1.jpg">
+    <img class="slide" src="S2.jpg">
+    <img class="slide" src="S3.jpg">
+    <img class="slide" src="S4.jpg">
+    <img class="slide" src="S5.jpg">
+  </div>
+
+  <style>
+    .slideshow-container {
+      width: 80%;
+      max-width: 500px;
+      margin: 40px auto;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+      animation: glowPulse 3s infinite alternate;
+    }
+    .slide {
+      width: 100%;
+      display: none;
+      border-radius: 20px;
+    }
+    @keyframes fade {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 15px #ff69b4; }
+      100% { box-shadow: 0 0 35px #66b3ff; }
+    }
+  </style>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName('slide');
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      slides[slideIndex - 1].style.animation = "fade 1.5s";
+      setTimeout(showSlides, 3000);
+    }
+    showSlides();
   </script>
 
 </body>
