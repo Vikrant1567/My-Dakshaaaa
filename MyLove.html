@@ -64,7 +64,7 @@ input {
 </div>
 
 <audio id="music" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/10/03/audio_5c8d7f7a03.mp3">
+  <source src="Piano Music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -72,20 +72,20 @@ let step = 0;
 let envelope = 1;
 
 const env1 = [
-  "My Darling Daksha 💗",
+  "My Cutie Daksha 💗",
   "There’s something about you…",
   "that makes everything feel calm.",
   "Your smile is my favorite.",
   "This was just the first envelope 💝"
 ];
 
-const env2 = [
-  "Dear Daksha 💖\n\n",
-  "You truly mean more to me than I can explain.\n\n",
-  "You make ordinary days feel special just by being you.\n\n",
-  "No matter what happens,\nyou’ll always have a place in my heart.\n\n",
-  "Always ❤️"
-];
+const fullLetter =
+"Dear Daksha 💖\n\n" +
+"You truly mean more to me than I can explain.\n\n" +
+"You make ordinary days feel special just by being you.\n\n" +
+"No matter what happens,\n" +
+"you’ll always have a place in my heart.\n\n" +
+"Always ❤️";
 
 function unlock() {
   if (document.getElementById("pass").value !== "Yuki") {
@@ -108,13 +108,12 @@ function next() {
       text.innerText = env1[step++];
     } else {
       envelope = 2;
-      step = 0;
       text.innerText = "Tap to open the second envelope 💝";
+      step = 0;
     }
   } else {
-    if (step < env2.length) {
-      text.innerText += env2[step++];
-    }
+    // SECOND ENVELOPE OPENS FULLY IN ONE CLICK
+    text.innerText = fullLetter;
   }
 }
 </script>
