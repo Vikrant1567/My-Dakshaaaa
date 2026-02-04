@@ -67,6 +67,8 @@ input {
   <source src="Piano Music.mp3" type="audio/mpeg">
 </audio>
 
+let secretShown = false;
+
 <script>
 let step = 0;
 let envelope = 1;
@@ -111,13 +113,25 @@ function next() {
       text.innerText = "Tap to open the second envelope 💝";
       step = 0;
     }
-  } else {
-    // SECOND ENVELOPE OPENS FULLY IN ONE CLICK
-    text.innerText = fullLetter;
+  } 
+  else {
+    // Second envelope
+    if (!secretShown) {
+      text.innerText =
+        fullLetter +
+        "\n\n( tap the heart once more 💗 )";
+      secretShown = true;
+    } else {
+      text.innerText =
+        fullLetter +
+        "\n\nNo matter where life takes us,\nI’ll always care about you.\n\n🌸";
+    }
   }
 }
+
 </script>
 
 </body>
 </html>
+
 
