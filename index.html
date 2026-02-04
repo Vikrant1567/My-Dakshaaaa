@@ -81,10 +81,10 @@ const env1 = [
 
 const fullLetter =
 "My Dear Daksha 💖\n\n" +
-"You truly mean more to me than I can explain,\n\n" +
+"You truly mean more to me than I can explain.\n\n" +
 "You make ordinary days feel special just by being you.\n\n" +
 "No matter what happens,\n" +
-"You’ll always be my favourite my babyyy.\n\n" +
+"You’ll always be my favourite my babyyyy.\n\n" +
 "Alwayssssss :3 ❤️";
 
 function unlock() {
@@ -108,11 +108,11 @@ function next() {
       text.innerText = env1[step++];
     } else {
       envelope = 2;
-      step = 0;
       text.innerText = "Tap to open the second envelope 💝";
+      step = 0;
     }
   } else {
-    // SECOND ENVELOPE OPENS FULLY
+    // SECOND ENVELOPE OPENS FULLY IN ONE CLICK
     text.innerText = fullLetter;
   }
 }
