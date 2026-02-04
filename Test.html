@@ -1,67 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>For Daksha 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ffd1e8, #fff6fb);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Dancing Script', cursive;
-    overflow: hidden;
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd1e8, #fff6fb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  width: 330px;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+h2 {
+  color: #ff4d94;
+  min-height: 90px;
+  white-space: pre-line;
+}
+
+button, input {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+}
+
+button {
+  background: #ff6fae;
+  color: white;
+  cursor: pointer;
+}
+
+input {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h2>Enter the password 💌</h2>
+  <input type="password" id="pass" placeholder="•••••">
+  <br>
+  <button onclick="unlock()">Unlock 💗</button>
+</div>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/03/audio_5c8d7f7a03.mp3">
+</audio>
+
+<script>
+let step = 0;
+let envelope = 1;
+
+const env1 = [
+  "My Darling Daksha 💗",
+  "There’s something about you…",
+  "that makes everything feel calm.",
+  "Your smile is my favorite.",
+  "This was just the first envelope 💝"
+];
+
+const env2 = [
+  "Dear Daksha 💖\n\n",
+  "You truly mean more to me than I can explain.\n\n",
+  "You make ordinary days feel special just by being you.\n\n",
+  "No matter what happens,\nyou’ll always have a place in my heart.\n\n",
+  "Always ❤️"
+];
+
+function unlock() {
+  if (document.getElementById("pass").value !== "Yuki") {
+    alert("Try again 💭");
+    return;
   }
 
-  .card {
-    background: white;
-    padding: 30px;
-    width: 340px;
-    border-radius: 22px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    text-align: center;
-    animation: pop 0.6s ease;
+  document.getElementById("music").play();
+
+  document.getElementById("card").innerHTML =
+    '<h2 id="text">Tap to open the first envelope ✉️</h2>' +
+    '<button onclick="next()">Open 💌</button>';
+}
+
+function next() {
+  let text = document.getElementById("text");
+
+  if (envelope === 1) {
+    if (step < env1.length) {
+      text.innerText = env1[step++];
+    } else {
+      envelope = 2;
+      step = 0;
+      text.innerText = "Tap to open the second envelope 💝";
+    }
+  } else {
+    if (step < env2.length) {
+      text.innerText += env2[step++];
+    }
   }
+}
+</script>
 
-  h2 {
-    font-size: 26px;
-    color: #ff4d94;
-    min-height: 90px;
-    white-space: pre-line;
-  }
-
-  input {
-    padding: 10px;
-    border-radius: 15px;
-    border: 1px solid #ccc;
-    font-family: 'Dancing Script', cursive;
-    font-size: 18px;
-    text-align: center;
-  }
-
-  button {
-    margin-top: 18px;
-    padding: 10px 22px;
-    border: none;
-    border-radius: 22px;
-    background: #ff6fae;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    font-family: 'Dancing Script', cursive;
-  }
-
-  button:hover { background: #ff4d94; }
-
-  .heart {
-    position: absolute;
-    animation: float 6s linear infinite;
-  }
-
-  @keyframes float {
-    from { transfo
+</body>
+</html>
