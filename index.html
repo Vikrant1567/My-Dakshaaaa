@@ -67,8 +67,6 @@ input {
   <source src="Piano Music.mp3" type="audio/mpeg">
 </audio>
 
-let secretShown = false;
-
 <script>
 let step = 0;
 let envelope = 1;
@@ -86,8 +84,8 @@ const fullLetter =
 "You truly mean more to me than I can explain,\n\n" +
 "You make ordinary days feel special just by being you.\n\n" +
 "No matter what happens,\n" +
-"You’ll always be my favourite my baby.\n\n" +
-"Alwayssss :P ❤️";
+"You’ll always be my favourite my babyyy.\n\n" +
+"Alwayssssss :3 ❤️";
 
 function unlock() {
   if (document.getElementById("pass").value !== "Yuki") {
@@ -110,28 +108,15 @@ function next() {
       text.innerText = env1[step++];
     } else {
       envelope = 2;
-      text.innerText = "Tap to open the second envelope 💝";
       step = 0;
+      text.innerText = "Tap to open the second envelope 💝";
     }
-  } 
-  else {
-    // Second envelope
-    if (!secretShown) {
-      text.innerText =
-        fullLetter +
-        "\n\n( tap the heart once more 💗 )";
-      secretShown = true;
-    } else {
-      text.innerText =
-        fullLetter +
-        "\n\nNo matter where life takes us,\nI’ll always care about you.\n\n🌸";
-    }
+  } else {
+    // SECOND ENVELOPE OPENS FULLY
+    text.innerText = fullLetter;
   }
 }
-
 </script>
 
 </body>
 </html>
-
-
